@@ -1,0 +1,39 @@
+# ── 密钥：绝对不能进镜像 ──
+.env
+.env.*
+!.env.example
+
+# ── 本地依赖与缓存（构建时重新安装）──
+node_modules/
+npm-debug.log*
+.cache/
+
+# ── 生成产物（在容器里挂卷即可，宿主机旧产物不必拷进镜像）──
+output/
+
+# ── 版本控制 / IDE / 系统 ──
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── 临时文件 ──
+*.tmp
+*.temp
+*.log
+
+# ── 容器自己的文件，无需拷进镜像 ──
+Dockerfile
+.dockerignore
+
+# ── Windows 安装脚本（容器是 Linux，用不到）──
+setup.bat
+
+# ── Claude Code 配置（仅本地 IDE 用）──
+.claude/

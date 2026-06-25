@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Technology Trends 2025</title>
+</head>
+<body>
+  <div data-composition-id="main" data-width="1920" data-height="1080">
+    <style>
+      [data-composition-id="main"] {
+        background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
+        font-family: "Inter", sans-serif;
+        color: #ffffff;
+        overflow: hidden;
+      }
+      .scene {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 160px;
+        box-sizing: border-box;
+      }
+      .scene-title {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #60a5fa;
+      }
+      .scene-body {
+        font-size: 28px;
+        line-height: 1.6;
+        color: #cbd5e1;
+        max-width: 900px;
+      }
+      .scene-highlight {
+        color: #f59e0b;
+        font-weight: 600;
+      }
+      .scene-image {
+        position: absolute;
+        right: 100px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 500px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+
+    <!-- Scene 1: Opening -->
+    <div id="s1" class="scene" data-start="0" data-duration="5" data-track-index="0">
+      <h1 class="scene-title">AI 技术趋势 2025</h1>
+      <p class="scene-body">
+        从大语言模型到多模态 AI，人工智能正在深刻改变我们工作和生活的方式。
+        2025 年，我们将看到更多突破性的应用落地。
+      </p>
+    </div>
+
+    <!-- Scene 2: Healthcare AI -->
+    <div id="s2" class="scene" data-start="5" data-duration="5" data-track-index="0">
+      <h2 class="scene-title">医疗健康领域</h2>
+      <p class="scene-body">
+        AI 辅助诊断已经能够识别超过 <span class="scene-highlight">50 种常见疾病</span>，
+        准确率媲美资深医师。从影像分析到药物研发，AI 正在加速医疗创新。
+        智能诊疗系统已经在全国超过 200 家三甲医院部署，每天处理数百万例诊断请求。
+      </p>
+    </div>
+
+    <!-- Scene 3: Education -->
+    <div id="s3" class="scene" data-start="10" data-duration="5" data-track-index="0">
+      <h2 class="scene-title">教育变革</h2>
+      <p class="scene-body">
+        个性化学习路径、AI 辅助批改、智能推荐系统正在重塑教育体验。
+        学生可以根据自身节奏学习，教师从繁重的批改工作中解放出来，
+        将更多精力投入到创造性教学中。全国已有 <span class="scene-highlight">3000 万学生</span> 使用 AI 学习工具。
+      </p>
+    </div>
+
+    <!-- Scene 4: Green Energy -->
+    <div id="s4" class="scene" data-start="15" data-duration="5" data-track-index="0">
+      <h2 class="scene-title">可持续发展</h2>
+      <p class="scene-body">
+        AI 驱动的能源管理系统帮助工厂降低 <span class="scene-highlight">30%</span> 的能耗。
+        智能电网、碳排放监测、绿色物流优化——AI 正在为碳中和目标贡献力量。
+        预计到 2030 年，AI 将帮助全球减少 20 亿吨碳排放。
+      </p>
+    </div>
+
+    <img class="scene-image" src="../assets/healthcare-ai.png" data-start="5" data-duration="5" data-track-index="5" />
+    <img class="scene-image" src="../assets/education-ai.png" data-start="10" data-duration="5" data-track-index="5" />
+    <img class="scene-image" src="../assets/green-energy-ai.png" data-start="15" data-duration="5" data-track-index="5" />
+
+    <!-- Scene 5: Closing -->
+    <div id="s5" class="scene" data-start="20" data-duration="5" data-track-index="0">
+      <h1 class="scene-title">未来已来</h1>
+      <p class="scene-body">
+        AI 不是替代人类，而是赋能人类。
+        让我们一起拥抱这场技术革命。
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene entrances
+      tl.from("#s1 .scene-title", { y: 50, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+      tl.from("#s1 .scene-body", { y: 30, opacity: 0, duration: 0.5, ease: "power2.out" }, 0.6);
+
+      tl.from("#s2 .scene-title", { x: -50, opacity: 0, duration: 0.6, ease: "expo.out" }, 5.3);
+      tl.from("#s2 .scene-body", { x: -30, opacity: 0, duration: 0.5, ease: "power2.out" }, 5.6);
+      tl.from(".scene-image:nth-of-type(1)", { x: 80, opacity: 0, duration: 0.8, ease: "power3.out" }, 5.4);
+
+      tl.from("#s3 .scene-title", { y: 50, opacity: 0, duration: 0.6, ease: "power3.out" }, 10.3);
+      tl.from("#s3 .scene-body", { y: 30, opacity: 0, duration: 0.5, ease: "power2.out" }, 10.6);
+      tl.from(".scene-image:nth-of-type(2)", { x: 80, opacity: 0, duration: 0.8, ease: "power3.out" }, 10.4);
+
+      tl.from("#s4 .scene-title", { scale: 0.8, opacity: 0, duration: 0.6, ease: "back.out(1.2)" }, 15.3);
+      tl.from("#s4 .scene-body", { y: 30, opacity: 0, duration: 0.5, ease: "power2.out" }, 15.6);
+      tl.from(".scene-image:nth-of-type(3)", { x: 80, opacity: 0, duration: 0.8, ease: "power3.out" }, 15.4);
+
+      tl.from("#s5 .scene-title", { y: 50, opacity: 0, duration: 0.7, ease: "power3.out" }, 20.3);
+      tl.from("#s5 .scene-body", { y: 30, opacity: 0, duration: 0.5, ease: "power2.out" }, 20.6);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </div>
+</body>
+</html>

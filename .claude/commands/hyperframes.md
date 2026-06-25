@@ -1,0 +1,1 @@
+读取并执行 `skills/hyperframes/SKILL.md` 中定义的完整工作流。严格遵循 6 步强制执行协议（Design System → Prompt Expansion → Plan → Layout → Animate → Output Checklist），不可跳步。每个 STEP-GATE 必须验证通过后才能继续。强制生成 design.md 和字幕。

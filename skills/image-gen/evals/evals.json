@@ -1,0 +1,23 @@
+{
+  "skill_name": "image-gen",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "请给 skills/image-gen/evals/test-composition.html 这个组合配图。分析HTML内容，确定哪些场景需要插图，为每个插图生成中文提示词，然后将图片元素插入到HTML中合适的位置。注意：不需要真的调用API生成图片，只需要分析并修改HTML，把图片路径和提示词写好就行。",
+      "expected_output": "A modified HTML file with image elements inserted at appropriate locations, each with Chinese prompts as comments or data attributes, proper hyperframes data-start/data-duration/data-track-index, and entrance animations in GSAP.",
+      "files": ["skills/image-gen/evals/test-composition.html"]
+    },
+    {
+      "id": 1,
+      "prompt": "我想给这个视频组合添加配图：skills/image-gen/evals/test-composition.html。主题是AI技术趋势，请用智谱的GLM-Image模型为每个场景生成合适的插图。你不需要实际调用API，只需要：1）分析哪些场景适合加图；2）为每张图写好中文prompt；3）把img标签和动画加到HTML里。",
+      "expected_output": "Analysis of which scenes benefit from images, Chinese prompts for each, and HTML with img elements, GSAP entrance animations, and proper timing.",
+      "files": ["skills/image-gen/evals/test-composition.html"]
+    },
+    {
+      "id": 2,
+      "prompt": "帮这个组合配图：skills/image-gen/evals/test-composition.html。我想要商务科技风格的插图，图片放在文字右边。不需要真的生成图片，把prompt和HTML改动写好就行。",
+      "expected_output": "HTML modified with right-aligned images in business/tech style, Chinese prompts reflecting the tech theme, and consistent placement strategy.",
+      "files": ["skills/image-gen/evals/test-composition.html"]
+    }
+  ]
+}

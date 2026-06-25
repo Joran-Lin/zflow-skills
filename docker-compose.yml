@@ -1,0 +1,31 @@
+##
+## zflow-skills — Docker Compose
+##
+## 一键启动（需先创建 .env 文件）：
+##   docker compose run --rm pipeline
+##
+## 然后在容器内正常使用 /start、/video-brief 等命令。
+## 生成产物通过 volume 映射到宿主机 output/ 目录。
+##
+
+services:
+  pipeline:
+    build: .
+    container_name: zflow-skills
+    image: zflow-skills:latest
+
+    # 交互式终端（必须，Claude Code 需要交互）
+    stdin_open: true
+    tty: true
+
+    # API 密钥通过 .env 注入（不烤进镜像）
+    env_file:
+      - .env
+
+    # 产物目录映射（容器销毁后产物不丢失）
+    volumes:
+      - ./output:/pipeline/output
+
+    # 默认：环境自检 → 进入交互式 shell
+    # 可覆盖：docker compose run --rm pipeline hyperframes --version
+    command: ["bash", "-lc", "node scripts/check-env.mjs --check; exec bash"]

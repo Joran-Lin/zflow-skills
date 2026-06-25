@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hyperframes *)",
+      "Bash(ffmpeg *)",
+      "Bash(ffprobe *)",
+      "Bash(node scripts/*)",
+      "Bash(node skills/*/scripts/*)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npm ls *)",
+      "Bash(npx *)",
+      "Bash(mkdir *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(cp *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git ls-tree *)",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}

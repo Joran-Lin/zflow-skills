@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Output / build artifacts
+output/
+
+# Cache
+.cache/
+__pycache__/
+.hyperframes/
+
+# Temporary files / dirs
+tmp/
+*.tmp
+*.temp
+
+# Logs
+*.log
+npm-debug.log*
+
+# docs
+docs/
+
+# claude
+.claude/settings.local.json
+.claude/agent-memory/
+.claude/agents/
+
+# Local artifacts & backups
+.path-backup/
+*.bak
+*.orig
+*.rej
+.local-chromium/
+.local-puppeteer/
+chromium/
+
+# Render stray artifacts (should live under output/, guard against root-level drops)
+/output-no-audio.mp4
+/output.mp4

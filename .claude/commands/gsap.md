@@ -1,0 +1,1 @@
+读取 `skills/gsap/SKILL.md` 中的 GSAP 动画参考。当需要为 composition 编写 GSAP 动画时按需查阅本技能。

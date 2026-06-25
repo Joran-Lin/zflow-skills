@@ -1,0 +1,138 @@
+zflow-skills
+Copyright (c) 2026 Min Li, Zhuoran Lin <zhuoran.lin@z.ai>
+
+Licensed under the Apache License, Version 2.0, except where noted below.
+See ./LICENSE for the full license text and ./LICENSES/ for referenced licenses.
+
+----------------------------------------------------------------------
+ THIRD-PARTY AND DIFFERENTLY-LICENSED COMPONENTS
+----------------------------------------------------------------------
+
+1) HyperFrames — https://github.com/heygen-com/hyperframes  (Apache-2.0)
+
+   VENDORED FORK.  The following directories are derived works based on the
+   upstream HyperFrames project and redistributed here under Apache-2.0:
+
+       skills/hyperframes/         (skills, references, palettes, scripts)
+       skills/hyperframes-cli/     (CLI reference skill)
+       skills/gsap/                (GSAP reference skill + audio extractor)
+
+   Upstream copyright (preserved as required by Apache-2.0 §4(a)):
+       Copyright (c) HeyGen, Inc.
+
+   Fork base: commit e59089bf759b4c4403a98522c1e7f26090a05199
+   Upstream LICENSE (Apache-2.0) is preserved verbatim in:
+       ./LICENSES/Apache-2.0.txt   (and the upstream root LICENSE is the
+                                    same standard Apache-2.0 text)
+   Upstream CREDITS.md (acknowledging Remotion's prior art) is preserved at:
+       ./LICENSES/hyperframes-CREDITS.md
+
+   Per Apache-2.0 §4(b), every file that has been MODIFIED relative to the
+   upstream commit carries a prominent provenance marker at its top, of the
+   form:
+       "Derived from heygen-com/hyperframes (Apache-2.0), commit e59089bf.
+        Modified by zflow-skills (Min Li, Zhuoran Lin)."
+   The following 17 files have been modified:
+       skills/gsap/SKILL.md
+       skills/hyperframes-cli/SKILL.md
+       skills/hyperframes/SKILL.md
+       skills/hyperframes/data-in-motion.md
+       skills/hyperframes/house-style.md
+       skills/hyperframes/patterns.md
+       skills/hyperframes/references/beat-direction.md
+       skills/hyperframes/references/dynamic-techniques.md
+       skills/hyperframes/references/media-selection.md
+       skills/hyperframes/references/motion-principles.md
+       skills/hyperframes/references/prompt-expansion.md
+       skills/hyperframes/references/transcript-guide.md
+       skills/hyperframes/references/tts.md
+       skills/hyperframes/references/video-composition.md
+       skills/hyperframes/scripts/animation-map.mjs
+       skills/hyperframes/scripts/contrast-report.mjs
+       skills/hyperframes/visual-styles.md
+
+   The remaining vendored files are IDENTICAL to the upstream commit (no
+   modifications). Five files are ORIGINAL works of this project (not present
+   upstream) and are listed here for clarity:
+       skills/hyperframes/components/_index.md
+       skills/hyperframes/components/fx-overlay.md
+       skills/hyperframes/components/progress-gauge.md
+       skills/hyperframes/components/quote-card.md
+       skills/hyperframes/components/schematic-callout.md
+
+   NOTE on local modifications: the maintainers also maintain a separately
+   patched copy of the HyperFrames CLI (installed globally via
+   `npm install -g hyperframes`) on their own machines. That patched CLI is
+   NOT distributed by this repository; if distributed separately it must, per
+   Apache-2.0 §4(b), retain the upstream LICENSE/NOTICE and carry "modified"
+   notices on changed files.
+
+2) edge-tts  —  LGPL-3.0-or-later
+   Derived work vendored in-repo:
+       skills/tts/scripts/edge-tts.mjs
+   Wrapper (original work of this project):
+       skills/tts/scripts/providers/edge.mjs
+
+   Upstream project:  https://github.com/rany2/edge-tts
+   Upstream author copyright (preserved by attribution convention, as a
+   courtesy / for transparency — not a legal obligation, since this is a
+   clean-room reimplementation containing no upstream source code):
+       Copyright (c) 2014-2023 Christopher Down
+       Copyright (c) 2025- rany <rany@riseup.net>
+   Upstream license:  GNU Lesser General Public License v3.0 (LGPL-3.0-or-later),
+                      with src/edge_tts/srt_composer.py under MIT (this file is
+                      NOT used by the JavaScript port).
+
+   Nature of derivation: skills/tts/scripts/edge-tts.mjs is a from-scratch
+   JavaScript reimplementation of the edge-tts Python client (it does not
+   embed any source code from the upstream project). It connects to the same
+   Microsoft Edge online TTS WebSocket endpoint.
+
+   Modifications made by this project:
+       - Ported the WebSocket TTS client from Python to Node.js.
+       - Adapted SSML/rate handling to the API expected by this pipeline.
+       - Added retry/submaker-equivalent helper logic for chunk synthesis.
+
+   This component remains under LGPL-3.0-or-later. The rest of the project is
+   Apache-2.0 and consumes edge-tts.mjs via ES module import (LGPL §4 "Combined
+   Work" terms are satisfied: prominent notice is given here, the LGPL & GPL
+   full texts accompany the distribution under ./LICENSES/, and the source of
+   the Library is provided in-repo).
+
+3) GSAP (GreenSock Animation Platform)
+   Referenced for educational/reference purposes only. gsap@3.14.2 (Core,
+   incl. TextPlugin) is loaded at runtime from the jsDelivr CDN and is NOT
+   distributed or vendored in this repository. GSAP Core is © GreenSock, Inc.,
+   licensed under the GreenSock Standard No-Dedication License (free for
+   commercial use). See https://greensock.com/standard-license/.
+   Note: some HyperFrames reference docs mention MotionPathPlugin, which is a
+   Club GreenSock / Membership-licensed plugin that requires a separate
+   commercial license for commercial use.
+
+4) Bundled npm dependencies (declared in package.json)
+   - ws (MIT) — https://github.com/websockets/ws — the only declared runtime
+     dependency of this repository's own code.
+
+5) Runtime dependencies (fetched at install/render time, NOT distributed by
+   this repository)
+   This project invokes the following third-party tools out-of-process. They
+   are obtained by the end user via npm/system package managers and are not
+   part of this distribution; each retains its own license:
+   - hyperframes CLI (Apache-2.0)        — npm install -g hyperframes
+   - puppeteer-core (Apache-2.0)         — for layout checks
+   - sharp (Apache-2.0)                  — image preprocessing (optional)
+   - @hyperframes/producer (Apache-2.0)  — vendored-fork helper scripts
+   - Playwright (Apache-2.0)             — optional Chromium bootstrap
+   - Node.js (MIT-equivalent)            — runtime
+   - Chromium / Chrome (BSD-3-Clause + others) — headless rendering engine
+
+   ⚠ FFmpeg (LGPL-2.1+ by default; GPL-enabled builds are common)
+   FFmpeg is a required system dependency for audio muxing and rendering. Most
+   prebuilt FFmpeg distributions enable GPL-licensed components (e.g. the
+   x264 H.264 encoder). Because this pipeline's default output is H.264 MP4:
+     - End users who render video inherit the obligations of THEIR FFmpeg
+       build (LGPL or GPL, depending on the build). This repository does not
+       redistribute FFmpeg and imposes no FFmpeg obligation on the repository
+       itself, but distributors of rendered output should verify their FFmpeg
+       build's license.
+

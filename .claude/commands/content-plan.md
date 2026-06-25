@@ -1,0 +1,1 @@
+读取并执行 `skills/content-plan/SKILL.md` 中定义的完整工作流。严格遵循所有步骤和硬性规则。根据 brief.json 的 sourceType 判断走 fulltext 还是 topic 扩写流程。

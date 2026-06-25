@@ -1,0 +1,31 @@
+{
+  "name": "zflow-skills",
+  "version": "1.0.0",
+  "description": "AI 视频生成流水线 — agent 无关的 Claude Code skills 编排（brief → content-plan → material+tts → hyperframes → render）",
+  "scripts": {
+    "setup": "node scripts/check-env.mjs --interactive",
+    "setup:check": "node scripts/check-env.mjs --check",
+    "setup:fix": "node scripts/check-env.mjs --fix",
+    "postinstall": "echo '\\n✅ 依赖已安装。运行 npm run setup 完成环境配置。\\n'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai-video",
+    "video-generation",
+    "claude-code",
+    "skills",
+    "pipeline",
+    "agent-agnostic",
+    "hyperframes",
+    "tts"
+  ],
+  "author": "Min Li, Zhuoran Lin <zhuoran.lin@z.ai>",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  }
+}
