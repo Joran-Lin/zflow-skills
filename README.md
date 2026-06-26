@@ -1,6 +1,6 @@
 <div align="center">
-
-# <img src="assets/logo.webp" alt="logo" width="48" style="vertical-align:middle" /> zflow-skills
+  
+<h1><picture><img src="assets/logo.webp" alt="logo" align="center" width="48"></picture> zflow-skills</h1>
 
 ### Give it a sentence. Get a finished video.
 
@@ -109,9 +109,20 @@ Freedom like that normally spirals into chaos. So four gates hold the line:
 
 > 🎬 A 2m30s video, generated from **a single Weibo post** (Prof. Tang Jie). Topic-to-video, end-to-end, no manual edit.
 
-<video src="https://github.com/user-attachments/assets/07a7c144-dbde-433f-8d23-c2601d7c0369" controls muted width="100%"></video>
+<video src="https://github.com/user-attachments/assets/e41a2322-1768-4e4f-bdf8-ed4cb2d7d554" controls muted width="100%"></video>
 
 <p align="center"><em>Inline preview is compressed. <a href="./assets/demos/tangjie-demo-hd.mp4">Watch the HD version</a> (1080p, 21 MB).</em></p>
+
+## Recommended stack
+
+zflow-skills is agent-agnostic — any coding agent that can follow `AGENT.md` can drive it. These are our tested picks:
+
+| Layer | Recommended | Notes |
+|---|---|---|
+| **Agent** | Claude Code, CodeBuddy, etc. | Claude Code supports slash commands (e.g. `/start`, `/render`) out-of-the-box; others can follow [`AGENT.md`](./AGENT.md) or run the scripts in `skills/*/scripts/` directly |
+| **Model** | [z.ai / GLM](https://z.ai/), etc. | Strong instruction-following and long-context works well for narration design + HTML composition |
+
+Other agents (Cursor / Codex / Copilot) work too — just follow [`AGENT.md`](./AGENT.md) or run the scripts in `skills/*/scripts/` directly.
 
 ## Quick start
 
@@ -119,7 +130,7 @@ Freedom like that normally spirals into chaos. So four gates hold the line:
 git clone https://github.com/Joran-Lin/zflow-skills.git && cd zflow-skills
 ```
 
-Run `/start` inside your agent — it auto-checks and installs all dependencies (Node, FFmpeg, Chromium, the hyperframes CLI, CJK fonts).
+Run `/start` inside your agent — or just type *"make me a video about X"* and let it do the rest. It auto-checks and installs all dependencies (Node, FFmpeg, Chromium, the hyperframes CLI, CJK fonts).
 
 Then drive the pipeline. The slash commands below run in **Claude Code** (smoothest experience); on Cursor / Windsurf / Copilot, just follow [`AGENT.md`](./AGENT.md) or run the scripts in `skills/*/scripts/` directly.
 
@@ -144,16 +155,6 @@ Then drive the pipeline. The slash commands below run in **Claude Code** (smooth
 | `MINIMAX_API_KEY` | — | MiniMax TTS *(optional)* |
 | `PEXELS_API_KEY` / `PIXABAY_API_KEY` | — | Material search *(optional)* |
 
-## License
-
-[Apache-2.0](./LICENSE) © 2026 Min Li, Zhuoran Lin.
-
-- `skills/hyperframes*` and `skills/gsap` — vendored fork of [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0, © HeyGen, Inc.). Modified files carry a provenance marker.
-- `skills/tts/scripts/edge-tts.mjs` — LGPL-3.0-or-later clean-room port of [edge-tts](https://github.com/rany2/edge-tts).
-
-See [`NOTICE`](./NOTICE) and [`LICENSES/`](./LICENSES/) for full attributions.
-
-
 ## Community
 
 Join us to chat, share ideas, or request features 👋
@@ -161,3 +162,9 @@ Join us to chat, share ideas, or request features 👋
 | Discord | Feishu | Xiaohongshu |
 |---|---|---|
 | [Join Discord](https://discord.gg/gBdhZksqKc) | [Join Feishu](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=364sa102-b5f0-4dea-8d3a-ab2ae4ddad52) | <img src="assets/xiaohongshu.webp" alt="Xiaohongshu" width="180"> |
+
+## License
+See [`NOTICE`](./NOTICE) and [`LICENSES/`](./LICENSES/) for full attributions.
+
+
+
