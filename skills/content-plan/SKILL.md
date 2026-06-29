@@ -154,6 +154,8 @@ Example:
 
 **Punctuation constraint (TTS-compatible):** Quotes in the narration must consistently use `「」` (Chinese corner brackets). Do **not** use `""` (Chinese curly quotes) or `""` (English curly quotes), because they are misinterpreted when passed on the shell command line, causing errors. The same applies to other special symbols: avoid `$` `` ` `` `\` and other characters that have special meaning in the shell.
 
+**Punctuation must match the language (hard constraint):** When the narration is in English (or any language written in the Latin script — German, French, Spanish, etc.), all punctuation must be **half-width ASCII**: `;` (not `；`), `,` (not `，`), `:` (not `：`), `.` (not `。`), `?` (not `？`), `!` (not `！`), `(` `)` (not `（` `）`). Full-width Chinese punctuation is shaped for CJK grids and looks broken inside Latin text. When the narration is in Chinese, use full-width CJK punctuation as usual. Read the `language` field in `brief.json` and match whichever script the text is written in.
+
 Write content-plan.json to the current working directory (or the directory containing brief.json).
 
 When done, prompt the user:
